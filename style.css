@@ -1,8 +1,10 @@
-/* GLOBAL STYLES */
+/* =========================================================
+   1. BASE STYLES & VARIABLES
+========================================================= */
 :root {
-    --primary-color: #5a4049; /* From your logo text */
-    --accent-color: #d19a8a; /* Rose gold from logo camera */
-    --bg-color: #fcf9f6; /* Background color of logo */
+    --primary-color: #5a4049; /* Deep tone from the Momento text */
+    --accent-color: #d19a8a;  /* Rose gold from the camera icon */
+    --bg-color: #fcf9f6;      /* Cream background */
 }
 
 * {
@@ -16,26 +18,30 @@ body {
     background-color: var(--bg-color);
     color: var(--primary-color);
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
 }
 
-/* NAVBAR */
+/* =========================================================
+   2. NAVBAR
+========================================================= */
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    padding: 15px 50px;
+    padding: 20px 50px;
     background: transparent;
     position: absolute;
     width: 100%;
     z-index: 100;
 }
 
-.logo img {
-    height: 60px;
+nav .nav-links {
+    margin-right: auto; 
+    margin-left: 20px;
 }
 
 .nav-links a {
@@ -45,74 +51,189 @@ nav {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
 }
 
 .auth-buttons button {
-    padding: 10px 20px;
+    padding: 10px 22px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
-.btn-login { background: transparent; color: var(--primary-color); border: 1px solid var(--primary-color); }
-.btn-signup { background: var(--accent-color); color: white; margin-left: 10px; }
+.btn-login { 
+    background: transparent; 
+    color: var(--primary-color); 
+    border: 2px solid var(--primary-color); 
+}
 
-/* HERO SECTION & GLOWING CLOUD */
+.btn-login:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-signup { 
+    background: var(--accent-color); 
+    color: white; 
+    margin-left: 15px; 
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 4px 15px rgba(209, 154, 138, 0.4);
+}
+
+.btn-signup:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(209, 154, 138, 0.6);
+}
+
+/* =========================================================
+   3. HERO SECTION & VIDEO BACKGROUND
+========================================================= */
 .hero {
-    height: 100vh;
+    position: relative;
     display: flex;
     align-items: center;
-    position: relative;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 60px 5%;
+    overflow: hidden;
 }
 
-.hero-cloud-shape {
+.hero-bg-video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 45vw;
-    height: 100vh;
-    background: radial-gradient(circle at top left, rgba(209, 154, 138, 0.4), transparent 70%);
-    border-bottom-right-radius: 100%; /* Half moon shape from corner */
-    animation: glowPulse 4s infinite alternate ease-in-out;
-    z-index: 1;
-}
-
-@keyframes glowPulse {
-    0% { transform: scale(1); opacity: 0.7; }
-    100% { transform: scale(1.05); opacity: 1; }
-}
-
-.hero-content {
-    z-index: 2;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient from 95% solid on the left (for logo) to 60% on the right (for video visibility) */
+    background: linear-gradient(to right, rgba(252, 249, 246, 0.95) 0%, rgba(252, 249, 246, 0.6) 100%);
+    z-index: -1;
+}
+
+/* =========================================================
+   4. CELLFLOW-STYLE LOGO PHYSICS (HERO LEFT)
+========================================================= */
+.hero-left { 
+    position: relative; 
+    z-index: 2; 
+    width: 45%; 
     display: flex;
-    justify-content: flex-end; /* Pushes text to the right */
-    padding-right: 10vw;
+    justify-content: center;
+    animation: slideInLeft 1s ease-out forwards; 
+}
+
+@keyframes slideInLeft { 
+    from { transform: translateX(-50px); opacity: 0; } 
+    to { transform: translateX(0); opacity: 1; } 
+}
+
+.logo-wrapper { 
+    position: relative; 
+    display: inline-block; 
+}
+
+.cloud-blob { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    width: 380px; 
+    height: 380px; 
+    background: radial-gradient(circle, rgba(209,154,138,0.25) 0%, rgba(90,64,73,0.1) 60%, rgba(255,255,255,0) 80%); 
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; 
+    transform: translate(-50%, -50%); 
+    animation: morphBlob 8s ease-in-out infinite alternate; 
+    z-index: 0; 
+}
+
+@keyframes morphBlob { 
+    0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: translate(-50%, -50%) scale(1); } 
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(-50%, -50%) scale(1.1); } 
+}
+
+.main-logo { 
+    position: relative; 
+    z-index: 1; 
+    width: 280px; 
+    height: 280px; 
+    object-fit: contain; 
+    background: white; 
+    border-radius: 50%; 
+    padding: 20px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06); 
+    animation: floatOnly 4s ease-in-out infinite; 
+}
+
+@keyframes floatOnly { 
+    0%, 100% { transform: translateY(0); box-shadow: 0 10px 30px rgba(0,0,0,0.06); } 
+    50% { transform: translateY(-15px); box-shadow: 0 25px 45px rgba(0,0,0,0.12); } 
+}
+
+/* =========================================================
+   5. HERO TEXT & TYPING ANIMATION (HERO RIGHT)
+========================================================= */
+.hero-right { 
+    position: relative; 
+    z-index: 2; 
+    width: 50%; 
+    display: flex; 
+    justify-content: flex-start; 
 }
 
 .hero-text-area {
-    width: 50%;
+    width: 100%;
 }
 
 .hero-text-area h1 {
-    font-size: 3rem;
+    font-size: 3.8rem;
     margin-bottom: 20px;
+    line-height: 1.1;
+    color: var(--primary-color);
+}
+
+.typing-container {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #4a5568;
+    line-height: 1.4;
 }
 
 .highlight-text {
     color: var(--accent-color);
     font-style: italic;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
 }
 
 .cursor {
     animation: blink 0.7s infinite;
+    color: var(--primary-color);
 }
 
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes blink { 
+    0%, 100% { opacity: 1; } 
+    50% { opacity: 0; } 
+}
 
-/* SERVICES (Arched Layout from reference image) */
+/* =========================================================
+   6. SERVICES SECTION (ARCHED LAYOUT)
+========================================================= */
 .services-section {
     padding: 100px 5vw;
     min-height: 100vh;
@@ -124,17 +245,36 @@ nav {
 .service-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
+    gap: 40px;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.arch-card {
+    text-align: center;
+    transition: transform 0.4s ease;
+}
+
+.arch-card:hover {
+    transform: translateY(-10px);
 }
 
 .arch-card img {
     width: 100%;
-    height: 350px;
+    height: 400px;
     object-fit: cover;
-    /* The crop style you pointed out */
-    border-top-left-radius: 150px;
-    border-top-right-radius: 150px;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    margin-bottom: 15px;
+}
+
+.arch-card p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--primary-color);
 }
 
 .center-text {
@@ -142,55 +282,80 @@ nav {
     padding: 20px;
 }
 
-/* UPGRADED CELLFLOW 3D CARDS */
+.center-text h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.center-text p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   7. UPGRADED 3D PHOTOGRAPHER CARDS
+========================================================= */
 .photographer-section {
-    padding: 80px 5vw;
+    padding: 100px 5vw;
     text-align: center;
+    background: white;
+}
+
+.photographer-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 60px;
 }
 
 .cards-container {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-top: 50px;
-    perspective: 1000px; /* Enables 3D space */
+    flex-wrap: wrap;
+    gap: 50px;
+    perspective: 1200px; 
 }
 
 .pro-card {
     width: 320px;
     height: 450px;
     position: relative;
-    border-radius: 15px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
     transform-style: preserve-3d;
+    cursor: pointer;
 }
 
-/* The 3D Hover Effect */
 .pro-card:hover {
-    transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
-    box-shadow: -10px 20px 40px rgba(0,0,0,0.2);
+    transform: translateY(-15px) rotateX(5deg) rotateY(-5deg);
+    box-shadow: -15px 25px 45px rgba(0,0,0,0.2);
 }
 
 .best-shot {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: filter 0.5s ease;
 }
 
-/* The DP in the corner */
+.pro-card:hover .best-shot {
+    filter: brightness(0.6); 
+}
+
+/* The expanding DP */
 .dp-wrapper {
     position: absolute;
-    bottom: 15px;
-    right: 15px;
-    width: 70px;
-    height: 70px;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid white;
+    border: 4px solid white;
     transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     z-index: 2;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .pro-dp {
@@ -201,15 +366,27 @@ nav {
 
 .dp-overlay-text {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 30px;
+    left: 25px;
     color: white;
     opacity: 0;
     transition: opacity 0.4s ease;
     text-align: left;
+    transform: translateY(20px);
 }
 
-/* The Sweet Animation: DP expands to cover the card */
+.dp-overlay-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.dp-overlay-text p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* The Magic Expansion Hover Effect */
 .pro-card:hover .dp-wrapper {
     bottom: 0;
     right: 0;
@@ -221,19 +398,28 @@ nav {
 
 .pro-card:hover .dp-overlay-text {
     opacity: 1;
-    transition-delay: 0.3s; /* Text appears after expansion */
+    transform: translateY(0);
+    transition-delay: 0.2s; 
 }
 
-/* FOOTER */
+/* =========================================================
+   8. FOOTER
+========================================================= */
 footer {
     text-align: center;
-    padding: 50px 20px;
+    padding: 60px 20px;
     background: var(--primary-color);
     color: var(--bg-color);
 }
 
-footer img {
-    height: 80px;
-    filter: brightness(0) invert(1); /* Makes the logo white */
-    margin-bottom: 15px;
+.footer-logo {
+    height: 100px;
+    filter: brightness(0) invert(1); 
+    margin-bottom: 20px;
+}
+
+footer p {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 5px;
 }
