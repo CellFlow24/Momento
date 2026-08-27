@@ -127,15 +127,14 @@ nav .nav-links {
 }
 
 /* =========================================================
-   4. CELLFLOW-STYLE LOGO PHYSICS (HERO LEFT)
+   4. HALF-MOON CLOUD & LOGO PHYSICS (HERO LEFT)
 ========================================================= */
 .hero-left { 
     position: relative; 
-    z-index: 2; 
+    z-index: 10; 
     width: 45%; 
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Pulls everything to the left */
     animation: slideInLeft 1s ease-out forwards; 
 }
 
@@ -144,49 +143,54 @@ nav .nav-links {
     to { transform: translateX(0); opacity: 1; } 
 }
 
+/* Bypass the section padding to stick to the absolute edge */
 .logo-wrapper { 
-    position: relative; 
+    position: absolute; 
+    left: -5vw; /* Pulls it flush against the left screen edge */
+    top: 50%;
+    transform: translateY(-50%);
     display: flex; 
     align-items: center;
 }
 
-/* The Half-Moon Animation */
+/* The Half-Moon Animation - Colors Boosted */
 .cloud-blob { 
     position: absolute; 
     top: 50%; 
-    left: -5vw; /* Pushes the flat side perfectly against the left edge of the screen */
-    width: 45vw; /* Makes it large */
-    max-width: 450px; 
-    height: 120vh; /* Makes it tall enough to reach top and bottom */
-    background: radial-gradient(circle at left center, rgba(209,154,138,0.3) 0%, rgba(90,64,73,0.1) 60%, transparent 70%); 
-    border-radius: 0 50% 50% 0; /* Creates the half-moon curve on the right side */
+    left: 0; /* Anchors the flat side strictly to the left edge */
+    width: 40vw; /* Wide enough to match your red circle */
+    max-width: 500px; 
+    height: 110vh; /* Stretches top to bottom */
+    /* Darker, richer rose-gold gradient so it is highly visible over the video */
+    background: radial-gradient(circle at 0% 50%, rgba(209,154,138, 0.8) 0%, rgba(90,64,73, 0.45) 55%, transparent 75%); 
+    border-radius: 0 50% 50% 0; /* Flat left, curved right */
     transform: translateY(-50%); 
-    animation: morphHalfMoon 8s ease-in-out infinite alternate; 
-    z-index: 0; 
+    animation: morphHalfMoon 6s ease-in-out infinite alternate; 
+    z-index: -1; 
 }
 
 @keyframes morphHalfMoon { 
-    0% { border-radius: 0 45% 55% 0; transform: translateY(-50%) scaleX(1); } 
-    100% { border-radius: 0 55% 45% 0; transform: translateY(-50%) scaleX(1.08); } 
+    0% { border-radius: 0 45% 55% 0; transform: translateY(-50%) scaleX(1); opacity: 0.85; } 
+    100% { border-radius: 0 55% 45% 0; transform: translateY(-50%) scaleX(1.15); opacity: 1; } 
 }
 
 .main-logo { 
     position: relative; 
-    z-index: 1; 
-    width: 280px; 
-    height: 280px; 
+    z-index: 2; 
+    width: 260px; 
+    height: 260px; 
     object-fit: contain; 
     background: white; 
     border-radius: 50%; 
-    padding: 20px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06); 
-    margin-left: 6vw; /* Pushes the logo out so it sits right on the curve of the moon */
+    padding: 15px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+    margin-left: 8vw; /* Pushes the white logo out into the yellow circle spot */
     animation: floatOnly 4s ease-in-out infinite; 
 }
 
 @keyframes floatOnly { 
-    0%, 100% { transform: translateY(0); box-shadow: 0 10px 30px rgba(0,0,0,0.06); } 
-    50% { transform: translateY(-15px); box-shadow: 0 25px 45px rgba(0,0,0,0.12); } 
+    0%, 100% { transform: translateY(0); box-shadow: 0 10px 30px rgba(0,0,0,0.15); } 
+    50% { transform: translateY(-15px); box-shadow: 0 25px 45px rgba(0,0,0,0.25); } 
 }
 
 /* =========================================================
