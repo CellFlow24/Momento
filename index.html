@@ -10,11 +10,8 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR (Logo removed, links and buttons only) -->
     <nav>
-        <div class="logo">
-            <img src="Stock/1000272025.png" alt="Momento Photography Logo">
-        </div>
         <div class="nav-links">
             <a href="#">Home</a>
             <a href="#services">Services</a>
@@ -28,17 +25,30 @@
 
     <!-- HERO SECTION -->
     <header class="hero">
-        <div class="hero-cloud-shape"></div>
-        <div class="hero-content">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="hero-bg-video">
+            <source src="Stock/hero-video.mp4" type="video/mp4">
+        </video>
+        <!-- Overlay to make text readable over the video -->
+        <div class="video-overlay"></div>
+
+        <!-- Cellflow Style Logo on the Left -->
+        <div class="hero-left">
+            <div class="logo-wrapper">
+                <div class="cloud-blob"></div>
+                <img src="Stock/1000272025.png" alt="Momento Photography Logo" class="main-logo">
+            </div>
+        </div>
+        
+        <!-- Typing Animation on the Right -->
+        <div class="hero-right">
             <div class="hero-text-area">
                 <h1>Capture Your Best Moments</h1>
                 <h2 class="typing-container">We can provide you services like <br><span id="typing-text" class="highlight-text"></span><span class="cursor">|</span></h2>
             </div>
         </div>
-        <!-- Background Video (Optional, as requested) -->
-        <!-- <video autoplay muted loop class="hero-bg-video"><source src="Stock/hero-video.mp4" type="video/mp4"></video> -->
     </header>
-
+    
     <!-- SERVICES SECTION (Inspired by 7ec2cf4f-8942-485e-af9d-e82435a41af8) -->
     <section id="services" class="services-section">
         <div class="service-grid">
