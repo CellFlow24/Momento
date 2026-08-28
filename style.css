@@ -909,3 +909,246 @@ footer p {
     background: var(--primary-color);
     color: white;
 }
+
+/* =========================================================
+   LOGO & CLOUD FIXES (Desktop & Mobile)
+========================================================= */
+.main-logo {
+    background: transparent !important; /* Removes the ugly white cut */
+    padding: 0 !important;
+    box-shadow: none !important;
+    /* Uses a drop-shadow filter which conforms to the shape of your PNG/JPEG */
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+}
+
+.logo-wrapper {
+    left: 0;
+}
+
+/* Replaces the sharp half-moon with a soft, natural radial glow */
+.cloud-blob {
+    width: 600px !important;
+    height: 600px !important;
+    left: -200px !important; /* Pulls it off the edge smoothly */
+    border-radius: 50% !important;
+    background: radial-gradient(circle, rgba(209,154,138,0.4) 0%, rgba(252,249,246,0) 70%) !important;
+    z-index: 0;
+}
+
+/* =========================================================
+   FOOTER STYLES
+========================================================= */
+.site-footer {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 60px 5vw 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 40px;
+}
+
+.footer-brand {
+    width: 35%;
+}
+
+.footer-logo {
+    width: 180px;
+    margin-bottom: 15px;
+    /* This filter makes the logo white to contrast against the dark background */
+    filter: brightness(0) invert(1);
+}
+
+.footer-brand p {
+    font-style: italic;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.footer-links, .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links h4, .footer-contact h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.footer-links a, .footer-contact a, .footer-contact p {
+    color: var(--bg-color);
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.footer-links a:hover, .social-links a:hover {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* =========================================================
+   COMPLETE MOBILE RESPONSIVENESS (Phones & Small Tablets)
+========================================================= */
+@media (max-width: 850px) {
+    /* Navbar Fixes */
+    nav {
+        flex-direction: column;
+        padding: 15px;
+        background: rgba(252, 249, 246, 0.95); /* Solidifies navbar on mobile */
+        position: fixed; /* Keeps navbar at top */
+    }
+    
+    nav .nav-links {
+        margin: 10px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .nav-links a {
+        font-size: 0.85rem;
+        margin: 0 5px;
+    }
+    
+    .auth-buttons {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn-login, .btn-signup {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+
+    /* Hero Fixes */
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding-top: 140px; /* Pushes content below the fixed navbar */
+    }
+
+    .hero-left, .hero-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .logo-wrapper {
+        position: relative;
+        transform: none;
+        top: 0;
+        margin-bottom: 30px;
+        justify-content: center;
+    }
+
+    .main-logo {
+        width: 180px;
+        height: 180px;
+        margin-left: 0;
+    }
+
+    .cloud-blob {
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 350px !important;
+        height: 350px !important;
+    }
+
+    .hero-text-area h1 {
+        font-size: 2.5rem;
+    }
+
+    .typing-container {
+        font-size: 1.3rem;
+    }
+
+    /* Wedding Banner Fixes */
+    .wedding-section {
+        flex-direction: column;
+        padding: 80px 20px;
+        height: auto;
+    }
+
+    .wedding-wave-bg {
+        height: 100%;
+    }
+
+    .wedding-upper-left, .wedding-center-quote, .wedding-bottom-right {
+        width: 100%;
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: 20px 0;
+        align-items: center;
+    }
+
+    .wedding-upper-left {
+        transform: none !important;
+    }
+
+    .arch-photo-mask {
+        width: 100%;
+        max-width: 320px;
+        height: 350px;
+        border-radius: 150px 150px 150px 0px;
+    }
+
+    .wedding-center-quote {
+        transform: none;
+        padding: 20px 10px;
+    }
+
+    .wedding-center-quote p {
+        font-size: 1.3rem;
+        min-height: auto;
+    }
+
+    /* Footer Fixes */
+    .footer-brand {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        margin: 0 auto 15px;
+    }
+
+    .footer-links, .footer-contact {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
