@@ -49,32 +49,31 @@
         </div>
     </header>
     
-    <!-- WEDDING CATEGORY BANNER (Exact layout from sketch) -->
-    <section id="category-wedding" class="wedding-section">
-        <div class="wedding-wave-bg"></div>
+    <!-- WEDDING CATEGORY BANNER -->
+    <section id="category-wedding" class="wedding-section hidden-section">
         
-        <!-- UPPER LEFT: Arched Photo Mask & "Weading" Title -->
-        <div class="wedding-upper-left">
+        <!-- THE WAVE BACKGROUND (Will draw in from left) -->
+        <div class="wedding-wave-bg"></div>
+
+        <!-- UPPER LEFT: Arched Photo Mask & Title -->
+        <div class="wedding-upper-left breathing-anim">
             <div class="arch-photo-mask">
                 <img src="Stock/wedding-banner-1.jpeg" class="banner-img active" alt="Wedding Banner 1">
                 <img src="Stock/wedding-banner-2.jpeg" class="banner-img" alt="Wedding Banner 2">
             </div>
-            <h2 class="section-tag-title">Weading</h2>
+            <h2 class="section-tag-title" id="wedding-title-type"></h2>
         </div>
 
-        <!-- CENTER: Romantic Quote / Attraction Text -->
+        <!-- CENTER: Romantic Quote -->
         <div class="wedding-center-quote">
-            <p>
-                "Because every love story is beautiful, but yours should be a masterpiece. Let us freeze your fleeting moments into eternal memories."
-            </p>
+            <p id="wedding-quote-type"></p>
         </div>
 
-        <!-- BOTTOM RIGHT: Professionals Title & Flipping 3D Stack -->
-        <div class="wedding-bottom-right">
+        <!-- BOTTOM RIGHT: Professionals Title & Stack -->
+        <div class="wedding-bottom-right breathing-anim">
             <h3 class="professionals-label">Professionals</h3>
             
             <div class="card-stack" id="wedding-stack">
-                <!-- Card 1 -->
                 <div class="pro-card stack-card" data-pos="0">
                     <img src="Stock/pro-shot-1.jpeg" class="best-shot" alt="Best Shot">
                     <div class="dp-wrapper">
@@ -85,7 +84,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Card 2 -->
                 <div class="pro-card stack-card" data-pos="1">
                     <img src="Stock/pro-shot-2.jpeg" class="best-shot" alt="Best Shot">
                     <div class="dp-wrapper">
@@ -96,7 +94,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Card 3 -->
                 <div class="pro-card stack-card" data-pos="2">
                     <img src="Stock/pro-shot-3.jpeg" class="best-shot" alt="Best Shot">
                     <div class="dp-wrapper">
@@ -112,7 +109,7 @@
             <button class="btn-view-all" onclick="openModal('modal-wedding')">View All Professionals</button>
         </div>
     </section>
-
+    
     <!-- VIEW ALL MODAL -->
     <div id="modal-wedding" class="modal">
         <div class="modal-content">
