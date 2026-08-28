@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momento Photography | Every Moment. Forever.</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Elegant Fonts for Photography -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR (Logo removed, links and buttons only) -->
+    <nav>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#services">Services</a>
+            <a href="#photographers">Our Photographers</a>
+        </div>
+        <div class="auth-buttons">
+            <button class="btn-login">Sign In</button>
+            <button class="btn-signup">Join as Photographer</button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="hero-bg-video">
+            <source src="Stock/hero-video.mp4" type="video/mp4">
+        </video>
+        <!-- Overlay to make text readable over the video -->
+        <div class="video-overlay"></div>
+
+        <!-- Cellflow Style Logo on the Left -->
+        <div class="hero-left">
+            <div class="logo-wrapper">
+                <div class="cloud-blob"></div>
+                <img src="Stock/1000272025.png" alt="Momento Photography Logo" class="main-logo">
+            </div>
+        </div>
+        
+        <!-- Typing Animation on the Right -->
+        <div class="hero-right">
+            <div class="hero-text-area">
+                <h1>Capture Your Best Moments</h1>
+                <h2 class="typing-container">We can provide you services like <br><span id="typing-text" class="highlight-text"></span><span class="cursor">|</span></h2>
+            </div>
+        </div>
+    </header>
+    
+    <!-- WEDDING CATEGORY BANNER (Exact layout from sketch) -->
+    <section id="category-wedding" class="wedding-section">
+        
+        <!-- UPPER LEFT: Arched Photo Mask & "Weading" Title -->
+        <div class="wedding-upper-left">
+            <div class="arch-photo-mask">
+                <img src="Stock/wedding-banner-1.jpg" class="banner-img active" alt="Wedding Banner 1">
+                <img src="Stock/wedding-banner-2.jpg" class="banner-img" alt="Wedding Banner 2">
+            </div>
+            <h2 class="section-tag-title">Weading</h2>
+        </div>
+
+        <!-- CENTER: Romantic Quote / Attraction Text -->
+        <div class="wedding-center-quote">
+            <p>
+                "Because every love story is beautiful, but yours should be a masterpiece. Let us freeze your fleeting moments into eternal memories."
+            </p>
+        </div>
+
+        <!-- BOTTOM RIGHT: Professionals Title & Flipping 3D Stack -->
+        <div class="wedding-bottom-right">
+            <h3 class="professionals-label">Professionals</h3>
+            
+            <div class="card-stack" id="wedding-stack">
+                <!-- Card 1 -->
+                <div class="pro-card stack-card" data-pos="0">
+                    <img src="Stock/pro-shot-1.jpg" class="best-shot" alt="Best Shot">
+                    <div class="dp-wrapper">
+                        <img src="Stock/pro-dp-1.jpg" class="pro-dp" alt="DP">
+                        <div class="dp-overlay-text">
+                            <h3>Aarav Mehta</h3>
+                            <p>🏆 50+ Weddings | Candid Expert</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="pro-card stack-card" data-pos="1">
+                    <img src="Stock/pro-shot-2.jpg" class="best-shot" alt="Best Shot">
+                    <div class="dp-wrapper">
+                        <img src="Stock/pro-dp-2.jpg" class="pro-dp" alt="DP">
+                        <div class="dp-overlay-text">
+                            <h3>Rohan Verma</h3>
+                            <p>🏆 40+ Weddings | Cinematic Story</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="pro-card stack-card" data-pos="2">
+                    <img src="Stock/pro-shot-3.jpg" class="best-shot" alt="Best Shot">
+                    <div class="dp-wrapper">
+                        <img src="Stock/pro-dp-3.jpg" class="pro-dp" alt="DP">
+                        <div class="dp-overlay-text">
+                            <h3>Kabir Das</h3>
+                            <p>🏆 70+ Weddings | Traditional Royal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-view-all" onclick="openModal('modal-wedding')">View All Professionals</button>
+        </div>
+    </section>
+
+    <!-- VIEW ALL MODAL -->
+    <div id="modal-wedding" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-wedding')">&times; Close</span>
+            <h2>All Wedding Professionals</h2>
+            <div class="modal-card-grid">
+                <div class="pro-card">
+                    <img src="Stock/pro-shot-1.jpg" class="best-shot" alt="Shot">
+                    <div class="dp-wrapper">
+                        <img src="Stock/pro-dp-1.jpg" class="pro-dp" alt="DP">
+                        <div class="dp-overlay-text">
+                            <h3>Aarav Mehta</h3>
+                            <p>🏆 Candid Expert</p>
+                            <button class="btn-view-profile">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pro-card">
+                    <img src="Stock/pro-shot-2.jpg" class="best-shot" alt="Shot">
+                    <div class="dp-wrapper">
+                        <img src="Stock/pro-dp-2.jpg" class="pro-dp" alt="DP">
+                        <div class="dp-overlay-text">
+                            <h3>Rohan Verma</h3>
+                            <p>🏆 Cinematic Story</p>
+                            <button class="btn-view-profile">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pro-card">
+                    <img src="Stock/pro-shot-3.jpg" class="best-shot" alt="Shot">
+                    <div class="dp-wrapper">
+                        <img src="Stock/pro-dp-3.jpg" class="pro-dp" alt="DP">
+                        <div class="dp-overlay-text">
+                            <h3>Kabir Das</h3>
+                            <p>🏆 Traditional Royal</p>
+                            <button class="btn-view-profile">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <img src="Stock/1000272025.png" alt="Logo" class="footer-logo">
+        <p>Every Moment. Forever.</p>
+        <p>&copy; 2026 Momento Photography. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
