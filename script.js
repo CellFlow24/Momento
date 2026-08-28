@@ -162,4 +162,14 @@ document.addEventListener("DOMContentLoaded", () => {
         "Birthdays", 
         '"Every year is a new chapter in your story. Let us capture the joy, the laughter, and the magic of your special day."'
     );
+    // Initialize Anniversaries
+    initCategorySection(
+        "category-anni", 
+        "anni-slideshow", 
+        "anni-stack", 
+        "anni-title-type", 
+        "anni-quote-type", 
+        "Anniversaries", 
+        '"Milestones of love, celebrated in style. We reflect the depth and beauty of your enduring bond."'
+    );
 });
