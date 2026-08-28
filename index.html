@@ -49,104 +49,110 @@
         </div>
     </header>
     
-    <!-- WEDDING CATEGORY BANNER (Exact layout from sketch) -->
-    <section id="category-wedding" class="wedding-section">
+    <!-- EXACT MATCH WEDDING BANNER -->
+    <section id="category-wedding" class="category-banner">
         
-        <!-- UPPER LEFT: Arched Photo Mask & "Weading" Title -->
-        <div class="wedding-upper-left">
-            <div class="arch-photo-mask">
-                <img src="Stock/wedding-banner-1.jpg" class="banner-img active" alt="Wedding Banner 1">
-                <img src="Stock/wedding-banner-2.jpg" class="banner-img" alt="Wedding Banner 2">
-            </div>
-            <h2 class="section-tag-title">Weading</h2>
-        </div>
-
-        <!-- CENTER: Romantic Quote / Attraction Text -->
-        <div class="wedding-center-quote">
-            <p>
-                "Because every love story is beautiful, but yours should be a masterpiece. Let us freeze your fleeting moments into eternal memories."
+        <!-- The flowing peach wave from your drawing -->
+        <div class="flowing-banner-bg">
+            <!-- The romantic pick-up line right in the middle -->
+            <p class="romantic-quote">
+                "Every love story is beautiful,<br>but yours should be a masterpiece."
             </p>
         </div>
-
-        <!-- BOTTOM RIGHT: Professionals Title & Flipping 3D Stack -->
-        <div class="wedding-bottom-right">
-            <h3 class="professionals-label">Professionals</h3>
-            
-            <div class="card-stack" id="wedding-stack">
-                <!-- Card 1 -->
-                <div class="pro-card stack-card" data-pos="0">
-                    <img src="Stock/pro-shot-1.jpg" class="best-shot" alt="Best Shot">
-                    <div class="dp-wrapper">
-                        <img src="Stock/pro-dp-1.jpg" class="pro-dp" alt="DP">
-                        <div class="dp-overlay-text">
-                            <h3>Aarav Mehta</h3>
-                            <p>🏆 50+ Weddings | Candid Expert</p>
-                        </div>
-                    </div>
+        
+        <div class="banner-content">
+            <!-- LEFT SIDE: "D" Shaped Image & Text Below -->
+            <div class="banner-left">
+                <div class="d-shape-mask breathing-effect">
+                    <img src="Stock/wedding-slide1.jpg" class="slider-img active" alt="Wedding">
+                    <img src="Stock/wedding-slide2.jpg" class="slider-img" alt="Wedding">
+                    <img src="Stock/wedding-slide3.jpg" class="slider-img" alt="Wedding">
                 </div>
-                <!-- Card 2 -->
-                <div class="pro-card stack-card" data-pos="1">
-                    <img src="Stock/pro-shot-2.jpg" class="best-shot" alt="Best Shot">
-                    <div class="dp-wrapper">
-                        <img src="Stock/pro-dp-2.jpg" class="pro-dp" alt="DP">
-                        <div class="dp-overlay-text">
-                            <h3>Rohan Verma</h3>
-                            <p>🏆 40+ Weddings | Cinematic Story</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="pro-card stack-card" data-pos="2">
-                    <img src="Stock/pro-shot-3.jpg" class="best-shot" alt="Best Shot">
-                    <div class="dp-wrapper">
-                        <img src="Stock/pro-dp-3.jpg" class="pro-dp" alt="DP">
-                        <div class="dp-overlay-text">
-                            <h3>Kabir Das</h3>
-                            <p>🏆 70+ Weddings | Traditional Royal</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Text exactly under the left corner like your drawing -->
+                <h2 class="category-title">Wedding</h2>
             </div>
 
-            <button class="btn-view-all" onclick="openModal('modal-wedding')">View All Professionals</button>
+            <!-- RIGHT SIDE: Text Above & 3D Flipping Stack -->
+            <div class="banner-right">
+                <!-- Text exactly above the cards like your drawing -->
+                <h3 class="professionals-title">Professionals</h3>
+                
+                <div class="card-stack" id="wedding-stack">
+                    <!-- Photographer 1 -->
+                    <div class="pro-card stack-card" data-pos="0">
+                        <img src="Stock/pro-shot1.jpg" class="best-shot" alt="Shot 1">
+                        <div class="dp-wrapper">
+                            <img src="Stock/pro-dp1.jpg" class="pro-dp" alt="DP 1">
+                            <div class="dp-overlay-text">
+                                <h3>John Doe</h3>
+                                <p>🏆 Candid Expert</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Photographer 2 -->
+                    <div class="pro-card stack-card" data-pos="1">
+                        <img src="Stock/pro-shot2.jpg" class="best-shot" alt="Shot 2">
+                        <div class="dp-wrapper">
+                            <img src="Stock/pro-dp2.jpg" class="pro-dp" alt="DP 2">
+                            <div class="dp-overlay-text">
+                                <h3>Sarah Smith</h3>
+                                <p>🏆 Cinematic Video</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Photographer 3 -->
+                    <div class="pro-card stack-card" data-pos="2">
+                        <img src="Stock/pro-shot3.jpg" class="best-shot" alt="Shot 3">
+                        <div class="dp-wrapper">
+                            <img src="Stock/pro-dp3.jpg" class="pro-dp" alt="DP 3">
+                            <div class="dp-overlay-text">
+                                <h3>Mike Johnson</h3>
+                                <p>🏆 Traditional</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-view-all" onclick="openModal('modal-wedding')">View All</button>
+            </div>
         </div>
     </section>
 
-    <!-- VIEW ALL MODAL -->
+    <!-- VIEW ALL POPUP MODAL -->
     <div id="modal-wedding" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-wedding')">&times; Close</span>
             <h2>All Wedding Professionals</h2>
             <div class="modal-card-grid">
+                <!-- Photographer 1 in Grid -->
                 <div class="pro-card">
-                    <img src="Stock/pro-shot-1.jpg" class="best-shot" alt="Shot">
+                    <img src="Stock/pro-shot1.jpg" class="best-shot" alt="Shot 1">
                     <div class="dp-wrapper">
-                        <img src="Stock/pro-dp-1.jpg" class="pro-dp" alt="DP">
+                        <img src="Stock/pro-dp1.jpg" class="pro-dp" alt="DP 1">
                         <div class="dp-overlay-text">
-                            <h3>Aarav Mehta</h3>
-                            <p>🏆 Candid Expert</p>
+                            <h3>John Doe</h3>
                             <button class="btn-view-profile">View Profile</button>
                         </div>
                     </div>
                 </div>
+                <!-- Photographer 2 in Grid -->
                 <div class="pro-card">
-                    <img src="Stock/pro-shot-2.jpg" class="best-shot" alt="Shot">
+                    <img src="Stock/pro-shot2.jpg" class="best-shot" alt="Shot 2">
                     <div class="dp-wrapper">
-                        <img src="Stock/pro-dp-2.jpg" class="pro-dp" alt="DP">
+                        <img src="Stock/pro-dp2.jpg" class="pro-dp" alt="DP 2">
                         <div class="dp-overlay-text">
-                            <h3>Rohan Verma</h3>
-                            <p>🏆 Cinematic Story</p>
+                            <h3>Sarah Smith</h3>
                             <button class="btn-view-profile">View Profile</button>
                         </div>
                     </div>
                 </div>
+                <!-- Photographer 3 in Grid -->
                 <div class="pro-card">
-                    <img src="Stock/pro-shot-3.jpg" class="best-shot" alt="Shot">
+                    <img src="Stock/pro-shot3.jpg" class="best-shot" alt="Shot 3">
                     <div class="dp-wrapper">
-                        <img src="Stock/pro-dp-3.jpg" class="pro-dp" alt="DP">
+                        <img src="Stock/pro-dp3.jpg" class="pro-dp" alt="DP 3">
                         <div class="dp-overlay-text">
-                            <h3>Kabir Das</h3>
-                            <p>🏆 Traditional Royal</p>
+                            <h3>Mike Johnson</h3>
                             <button class="btn-view-profile">View Profile</button>
                         </div>
                     </div>
