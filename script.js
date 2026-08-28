@@ -172,4 +172,14 @@ document.addEventListener("DOMContentLoaded", () => {
         "Anniversaries", 
         '"Milestones of love, celebrated in style. We reflect the depth and beauty of your enduring bond."'
     );
+    // Initialize Pre-Weddings
+    initCategorySection(
+        "category-prewed", 
+        "prewed-slideshow", 
+        "prewed-stack", 
+        "prewed-title-type", 
+        "prewed-quote-type", 
+        "Pre-Weddings", 
+        '"Before the vows, there is the romance. Let us capture the pure excitement of your journey together."'
+    );
 });
