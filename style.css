@@ -2,9 +2,9 @@
    1. BASE STYLES & VARIABLES
 ========================================================= */
 :root {
-    --primary-color: #5a4049; /* Deep tone from the Momento text */
-    --accent-color: #d19a8a;  /* Rose gold from the camera icon */
-    --bg-color: #fcf9f6;      /* Cream background */
+    --primary-color: #5a4049;
+    --accent-color: #d19a8a; 
+    --bg-color: #fcf9f6; 
 }
 
 * {
@@ -36,7 +36,7 @@ nav {
     background: transparent;
     position: absolute;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
 }
 
 nav .nav-links {
@@ -121,13 +121,12 @@ nav .nav-links {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Gradient from 95% solid on the left (for logo) to 60% on the right (for video visibility) */
     background: linear-gradient(to right, rgba(252, 249, 246, 0.95) 0%, rgba(252, 249, 246, 0.6) 100%);
     z-index: -1;
 }
 
 /* =========================================================
-   4. HALF-MOON CLOUD & LOGO PHYSICS (HERO LEFT)
+   4. LOGO PHYSICS & BACKGROUND CLOUD
 ========================================================= */
 .hero-left { 
     position: relative; 
@@ -143,35 +142,25 @@ nav .nav-links {
     to { transform: translateX(0); opacity: 1; } 
 }
 
-/* Bypass the section padding to stick to the absolute edge */
 .logo-wrapper { 
     position: absolute; 
-    left: -5vw; /* Pulls it flush against the left screen edge */
+    left: 0;
     top: 50%;
     transform: translateY(-50%);
     display: flex; 
     align-items: center;
 }
 
-/* The Half-Moon Animation - Colors Boosted */
 .cloud-blob { 
     position: absolute; 
     top: 50%; 
-    left: 0; /* Anchors the flat side strictly to the left edge */
-    width: 40vw; /* Wide enough to match your red circle */
-    max-width: 500px; 
-    height: 110vh; /* Stretches top to bottom */
-    /* Darker, richer rose-gold gradient so it is highly visible over the video */
-    background: radial-gradient(circle at 0% 50%, rgba(209,154,138, 0.8) 0%, rgba(90,64,73, 0.45) 55%, transparent 75%); 
-    border-radius: 0 50% 50% 0; /* Flat left, curved right */
+    left: -200px; 
+    width: 600px; 
+    height: 600px; 
+    border-radius: 50%; 
+    background: radial-gradient(circle, rgba(209,154,138,0.4) 0%, rgba(252,249,246,0) 70%); 
     transform: translateY(-50%); 
-    animation: morphHalfMoon 6s ease-in-out infinite alternate; 
-    z-index: -1; 
-}
-
-@keyframes morphHalfMoon { 
-    0% { border-radius: 0 45% 55% 0; transform: translateY(-50%) scaleX(1); opacity: 0.85; } 
-    100% { border-radius: 0 55% 45% 0; transform: translateY(-50%) scaleX(1.15); opacity: 1; } 
+    z-index: 0; 
 }
 
 .main-logo { 
@@ -180,21 +169,19 @@ nav .nav-links {
     width: 260px; 
     height: 260px; 
     object-fit: contain; 
-    background: white; 
-    border-radius: 50%; 
-    padding: 15px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
-    margin-left: 8vw; /* Pushes the white logo out into the yellow circle spot */
+    background: transparent; 
+    margin-left: 8vw; 
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
     animation: floatOnly 4s ease-in-out infinite; 
 }
 
 @keyframes floatOnly { 
-    0%, 100% { transform: translateY(0); box-shadow: 0 10px 30px rgba(0,0,0,0.15); } 
-    50% { transform: translateY(-15px); box-shadow: 0 25px 45px rgba(0,0,0,0.25); } 
+    0%, 100% { transform: translateY(0); filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1)); } 
+    50% { transform: translateY(-15px); filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2)); } 
 }
 
 /* =========================================================
-   5. HERO TEXT & TYPING ANIMATION (HERO RIGHT)
+   5. HERO TEXT & TYPING ANIMATION
 ========================================================= */
 .hero-right { 
     position: relative; 
@@ -204,9 +191,7 @@ nav .nav-links {
     justify-content: flex-start; 
 }
 
-.hero-text-area {
-    width: 100%;
-}
+.hero-text-area { width: 100%; }
 
 .hero-text-area h1 {
     font-size: 3.8rem;
@@ -241,480 +226,45 @@ nav .nav-links {
 }
 
 /* =========================================================
-   6. SERVICES SECTION (ARCHED LAYOUT)
-========================================================= */
-.services-section {
-    padding: 100px 5vw;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.service-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.arch-card {
-    text-align: center;
-    transition: transform 0.4s ease;
-}
-
-.arch-card:hover {
-    transform: translateY(-10px);
-}
-
-.arch-card img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-    margin-bottom: 15px;
-}
-
-.arch-card p {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-style: italic;
-    color: var(--primary-color);
-}
-
-.center-text {
-    text-align: center;
-    padding: 20px;
-}
-
-.center-text h2 {
-    font-size: 2.8rem;
-    margin-bottom: 15px;
-}
-
-.center-text p {
-    font-size: 1.1rem;
-    color: #666;
-    line-height: 1.6;
-}
-
-/* =========================================================
-   7. UPGRADED 3D PHOTOGRAPHER CARDS
-========================================================= */
-.photographer-section {
-    padding: 100px 5vw;
-    text-align: center;
-    background: white;
-}
-
-.photographer-section h2 {
-    font-size: 2.8rem;
-    margin-bottom: 60px;
-}
-
-.cards-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px;
-    perspective: 1200px; 
-}
-
-.pro-card {
-    width: 320px;
-    height: 450px;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-    transform-style: preserve-3d;
-    cursor: pointer;
-}
-
-.pro-card:hover {
-    transform: translateY(-15px) rotateX(5deg) rotateY(-5deg);
-    box-shadow: -15px 25px 45px rgba(0,0,0,0.2);
-}
-
-.best-shot {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: filter 0.5s ease;
-}
-
-.pro-card:hover .best-shot {
-    filter: brightness(0.6); 
-}
-
-/* The expanding DP */
-.dp-wrapper {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid white;
-    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-    z-index: 2;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.pro-dp {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.dp-overlay-text {
-    position: absolute;
-    bottom: 30px;
-    left: 25px;
-    color: white;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    text-align: left;
-    transform: translateY(20px);
-}
-
-.dp-overlay-text h3 {
-    font-size: 1.8rem;
-    margin-bottom: 5px;
-}
-
-.dp-overlay-text p {
-    font-family: 'Lato', sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
-}
-
-/* The Magic Expansion Hover Effect */
-.pro-card:hover .dp-wrapper {
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    border: none;
-}
-
-.pro-card:hover .dp-overlay-text {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.2s; 
-}
-
-/* =========================================================
-   8. FOOTER
-========================================================= */
-footer {
-    text-align: center;
-    padding: 60px 20px;
-    background: var(--primary-color);
-    color: var(--bg-color);
-}
-
-.footer-logo {
-    height: 100px;
-    filter: brightness(0) invert(1); 
-    margin-bottom: 20px;
-}
-
-footer p {
-    font-size: 1rem;
-    opacity: 0.8;
-    margin-bottom: 5px;
-}
-
-/* =========================================================
-   NEW CATEGORY BANNER (WEDDINGS, BABY, ETC)
-========================================================= */
-.category-banner {
-    position: relative;
-    padding: 80px 5vw;
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    background: transparent;
-    z-index: 5;
-}
-
-/* The Peach Wavy Background Shape */
-.banner-wavy-bg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 95vw;
-    height: 65vh;
-    background: #f4d5c2; /* Soft peach matching your drawing */
-    border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
-    z-index: -1;
-    animation: slowWave 12s ease-in-out infinite alternate;
-}
-
-@keyframes slowWave {
-    0% { border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%; }
-    100% { border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%; }
-}
-
-.banner-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    gap: 30px;
-}
-
-/* LEFT: Sliding Image & Title */
-.banner-left {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.breathing-effect {
-    animation: floatOnly 4s ease-in-out infinite;
-}
-
-.image-slider-mask {
-    position: relative;
-    width: 100%;
-    height: 450px;
-    border-radius: 200px 200px 0 0; /* Top Arch */
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.slider-img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out; /* Smooth silk fade */
-}
-
-.slider-img.active {
-    opacity: 1;
-}
-
-.category-title {
-    margin-top: 20px;
-    font-size: 2.5rem;
-    color: var(--primary-color);
-}
-
-/* CENTER: Quote */
-.banner-center {
-    width: 35%;
-    text-align: center;
-    padding: 20px;
-}
-
-.romantic-quote {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-style: italic;
-    color: var(--primary-color);
-    line-height: 1.6;
-}
-
-/* RIGHT: Flipping Stack */
-.banner-right {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.professionals-title {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
-
-.card-stack {
-    position: relative;
-    width: 280px;
-    height: 400px;
-    perspective: 1000px;
-}
-
-/* 3D Flipping Positions */
-.stack-card {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.stack-card[data-pos="0"] { z-index: 3; transform: translateX(0) scale(1); opacity: 1; }
-.stack-card[data-pos="1"] { z-index: 2; transform: translateX(35px) translateY(-15px) scale(0.9); opacity: 0.9; box-shadow: -10px 10px 20px rgba(0,0,0,0.05); }
-.stack-card[data-pos="2"] { z-index: 1; transform: translateX(70px) translateY(-30px) scale(0.8); opacity: 0.7; box-shadow: -10px 10px 20px rgba(0,0,0,0.05); }
-
-/* The View All Button */
-.btn-view-all {
-    margin-top: 30px;
-    background: white;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-view-all:hover {
-    background: var(--primary-color);
-    color: white;
-}
-
-/* =========================================================
-   MODAL POPUP (Grid of Professionals)
-========================================================= */
-.modal {
-    display: none; 
-    position: fixed; 
-    top: 0; left: 0; 
-    width: 100%; height: 100%; 
-    background-color: rgba(90, 64, 73, 0.8); /* Primary color tinted glass */
-    backdrop-filter: blur(8px);
-    z-index: 1000; 
-    overflow-y: auto; 
-}
-
-.modal-content {
-    background: var(--bg-color);
-    margin: 5% auto; 
-    padding: 40px; 
-    width: 90%; 
-    max-width: 1100px; 
-    border-radius: 20px; 
-    position: relative; 
-    text-align: center; 
-}
-
-.close-btn {
-    position: absolute; 
-    top: 20px; right: 25px; 
-    font-size: 16px; 
-    font-weight: bold; 
-    cursor: pointer; 
-    color: var(--primary-color);
-    background: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-}
-
-.modal-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
-
-.modal-card-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-}
-
-/* Profile button specifically for modal cards */
-.btn-view-profile {
-    margin-top: 15px;
-    padding: 8px 15px;
-    background: transparent;
-    border: 1px solid white;
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-view-profile:hover {
-    background: white;
-    color: var(--primary-color);
-}
-
-/* =========================================================
-   WEDDING SECTION: AMBIENT BOKEH BACKGROUND
+   6. WEDDING SECTION: AMBIENT BOKEH BACKGROUND
 ========================================================= */
 .wedding-section {
     position: relative;
     width: 100%;
     min-height: 100vh;
     padding: 80px 5vw;
-    background-color: #fcf9f6; /* Base cream */
+    background-color: var(--bg-color);
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* --- THE NEW AMBIENT LIGHTING EFFECT --- */
 .ambient-background {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: 0;
-    pointer-events: none; /* Allows clicking through to the buttons */
+    pointer-events: none; 
 }
 
 .glow-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px); /* Massive blur creates the soft glow */
+    filter: blur(100px); 
     opacity: 0.5;
     animation: slowDrift 15s infinite alternate ease-in-out;
 }
 
-/* Top left rose-gold glow behind the arch */
-.orb-1 {
-    width: 500px; height: 500px;
-    background: #d19a8a; 
-    top: -10%; left: -5%;
-    animation-delay: 0s;
-}
-
-/* Center peach glow behind the quote */
-.orb-2 {
-    width: 600px; height: 600px;
-    background: #f4d5c2; 
-    top: 20%; left: 30%;
-    animation-delay: -5s;
-    opacity: 0.6;
-}
-
-/* Bottom right deeper tone behind the cards */
-.orb-3 {
-    width: 450px; height: 450px;
-    background: #5a4049; 
-    bottom: -10%; right: -5%;
-    animation-delay: -10s;
-    opacity: 0.15; /* Kept subtle so cards remain clear */
-}
+.orb-1 { width: 500px; height: 500px; background: #d19a8a; top: -10%; left: -5%; animation-delay: 0s; }
+.orb-2 { width: 600px; height: 600px; background: #f4d5c2; top: 20%; left: 30%; animation-delay: -5s; opacity: 0.6; }
+.orb-3 { width: 450px; height: 450px; background: #5a4049; bottom: -10%; right: -5%; animation-delay: -10s; opacity: 0.15; }
 
 @keyframes slowDrift {
     0% { transform: translate(0, 0) scale(1); }
     100% { transform: translate(40px, -40px) scale(1.1); }
 }
 
-/* Bring content above the lights */
-.wedding-upper-left,
-.wedding-center-quote,
-.wedding-bottom-right {
+.wedding-upper-left, .wedding-center-quote, .wedding-bottom-right {
     position: relative;
     z-index: 5;
 }
@@ -736,19 +286,16 @@ footer p {
     background: white; 
 }
 
-/* Smooth Crossfade setup */
 .banner-img {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 2s ease-in-out; /* Slow silk fade */
+    transition: opacity 2s ease-in-out; 
 }
 
-.banner-img.active {
-    opacity: 1;
-}
+.banner-img.active { opacity: 1; }
 
 .section-tag-title {
     margin-top: 15px;
@@ -759,7 +306,7 @@ footer p {
     min-height: 40px; 
 }
 
-/* --- CENTER & RIGHT (Remains unchanged from previous step) --- */
+/* --- CENTER QUOTE --- */
 .wedding-center-quote {
     flex: 1; 
     padding: 0 50px;
@@ -775,91 +322,12 @@ footer p {
     min-height: 120px; 
 }
 
+/* --- BOTTOM RIGHT STACK --- */
 .wedding-bottom-right {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 50px; 
-}
-
-/* Breathing animation for elements */
-.breathing-anim {
-    animation: slowBreathe 6s ease-in-out infinite;
-}
-
-@keyframes slowBreathe {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-}
-
-/* Ensure all content floats above the wave */
-.wedding-upper-left,
-.wedding-center-quote,
-.wedding-bottom-right {
-    position: relative; /* Changed from absolute to fix yellow circle overlap */
-    z-index: 5;
-}
-
-/* UPPER LEFT */
-.wedding-upper-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.arch-photo-mask {
-    width: 320px;
-    height: 420px;
-    border-radius: 200px 200px 200px 0px; /* D-Shape */
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(90, 64, 73, 0.12);
-    position: relative;
-    background: white; 
-}
-
-.banner-img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-}
-
-.banner-img.active { opacity: 1; }
-
-.section-tag-title {
-    margin-top: 15px;
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-style: italic;
-    color: var(--primary-color);
-    letter-spacing: 1px;
-    min-height: 40px; /* Keeps space while typing */
-}
-
-/* CENTER: Quote */
-.wedding-center-quote {
-    flex: 1; /* Allows it to dynamically take up middle space */
-    padding: 0 50px;
-    text-align: center;
-}
-
-.wedding-center-quote p {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-style: italic;
-    color: var(--primary-color);
-    line-height: 1.6;
-    min-height: 120px; /* Keeps space while typing */
-}
-
-/* BOTTOM RIGHT */
-.wedding-bottom-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px; /* Drops it lower to match the diagonal layout */
 }
 
 .professionals-label {
@@ -892,7 +360,53 @@ footer p {
 .stack-card[data-pos="1"] { z-index: 2; transform: translateX(25px) translateY(-15px) scale(0.92); opacity: 0.85; }
 .stack-card[data-pos="2"] { z-index: 1; transform: translateX(50px) translateY(-30px) scale(0.84); opacity: 0.7; }
 
-/* View All Button */
+.best-shot {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: filter 0.5s ease;
+}
+
+.stack-card:hover .best-shot { filter: brightness(0.6); }
+
+.dp-wrapper {
+    position: absolute;
+    bottom: 20px; right: 20px;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.pro-dp { width: 100%; height: 100%; object-fit: cover; }
+
+.dp-overlay-text {
+    position: absolute;
+    bottom: 30px; left: 25px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    text-align: left;
+    transform: translateY(20px);
+}
+
+.dp-overlay-text h3 { font-size: 1.8rem; margin-bottom: 5px; }
+.dp-overlay-text p { font-family: 'Lato', sans-serif; font-size: 1rem; font-weight: 300; }
+
+.stack-card:hover .dp-wrapper {
+    bottom: 0; right: 0;
+    width: 100%; height: 100%;
+    border-radius: 0; border: none;
+}
+
+.stack-card:hover .dp-overlay-text {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s; 
+}
+
 .btn-view-all {
     margin-top: 20px;
     background: transparent;
@@ -910,33 +424,94 @@ footer p {
     color: white;
 }
 
+.breathing-anim {
+    animation: slowBreathe 6s ease-in-out infinite;
+}
+
+@keyframes slowBreathe {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
 /* =========================================================
-   LOGO & CLOUD FIXES (Desktop & Mobile)
+   7. MODAL POPUP
 ========================================================= */
-.main-logo {
-    background: transparent !important; /* Removes the ugly white cut */
-    padding: 0 !important;
-    box-shadow: none !important;
-    /* Uses a drop-shadow filter which conforms to the shape of your PNG/JPEG */
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+.modal {
+    display: none; 
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(90, 64, 73, 0.8); 
+    backdrop-filter: blur(8px);
+    z-index: 1000; 
+    overflow-y: auto; 
 }
 
-.logo-wrapper {
-    left: 0;
+.modal-content {
+    background: var(--bg-color);
+    margin: 5% auto; 
+    padding: 40px; 
+    width: 90%; 
+    max-width: 1100px; 
+    border-radius: 20px; 
+    position: relative; 
+    text-align: center; 
 }
 
-/* Replaces the sharp half-moon with a soft, natural radial glow */
-.cloud-blob {
-    width: 600px !important;
-    height: 600px !important;
-    left: -200px !important; /* Pulls it off the edge smoothly */
-    border-radius: 50% !important;
-    background: radial-gradient(circle, rgba(209,154,138,0.4) 0%, rgba(252,249,246,0) 70%) !important;
-    z-index: 0;
+.close-btn {
+    position: absolute; 
+    top: 20px; right: 25px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    color: var(--primary-color);
+    background: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.modal-content h2 { font-size: 2.5rem; margin-bottom: 40px; }
+.modal-card-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
+
+.modal-card-grid .pro-card {
+    width: 320px; height: 450px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+}
+
+.modal-card-grid .pro-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+}
+
+.modal-card-grid .pro-card:hover .dp-wrapper {
+    bottom: 0; right: 0; width: 100%; height: 100%; border-radius: 0; border: none;
+}
+.modal-card-grid .pro-card:hover .dp-overlay-text { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+.modal-card-grid .pro-card:hover .best-shot { filter: brightness(0.6); }
+
+.btn-view-profile {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-view-profile:hover {
+    background: white;
+    color: var(--primary-color);
 }
 
 /* =========================================================
-   FOOTER STYLES
+   8. FOOTER STYLES
 ========================================================= */
 .site-footer {
     background-color: var(--primary-color);
@@ -956,28 +531,16 @@ footer p {
     padding-bottom: 40px;
 }
 
-.footer-brand {
-    width: 35%;
-}
+.footer-brand { width: 35%; }
 
 .footer-logo {
     width: 180px;
     margin-bottom: 15px;
-    /* This filter makes the logo white to contrast against the dark background */
     filter: brightness(0) invert(1);
 }
 
-.footer-brand p {
-    font-style: italic;
-    opacity: 0.8;
-    line-height: 1.6;
-}
-
-.footer-links, .footer-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+.footer-brand p { font-style: italic; opacity: 0.8; line-height: 1.6; }
+.footer-links, .footer-contact { display: flex; flex-direction: column; gap: 10px; }
 
 .footer-links h4, .footer-contact h4 {
     font-family: 'Playfair Display', serif;
@@ -999,29 +562,23 @@ footer p {
     padding-left: 5px;
 }
 
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
+.social-links { display: flex; gap: 15px; margin-top: 10px; }
+.footer-bottom { text-align: center; padding-top: 20px; font-size: 0.9rem; opacity: 0.7; }
 
 /* =========================================================
-   COMPLETE MOBILE RESPONSIVENESS (Phones & Small Tablets)
+   9. COMPLETE MOBILE RESPONSIVENESS (Phones & Small Tablets)
 ========================================================= */
 @media (max-width: 850px) {
-    /* Navbar Fixes */
+    /* Fixed Mobile Navbar */
     nav {
         flex-direction: column;
-        padding: 15px;
-        background: rgba(252, 249, 246, 0.95); /* Solidifies navbar on mobile */
-        position: fixed; /* Keeps navbar at top */
+        padding: 15px 10px;
+        background: rgba(252, 249, 246, 0.98);
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        z-index: 1000;
     }
     
     nav .nav-links {
@@ -1029,18 +586,20 @@ footer p {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
+        gap: 15px;
+        width: 100%;
     }
     
     .nav-links a {
-        font-size: 0.85rem;
-        margin: 0 5px;
+        font-size: 0.9rem;
+        margin: 0;
     }
     
     .auth-buttons {
-        margin-top: 10px;
         display: flex;
+        justify-content: center;
         gap: 10px;
+        width: 100%;
     }
 
     .btn-login, .btn-signup {
@@ -1048,16 +607,18 @@ footer p {
         font-size: 0.85rem;
     }
 
-    /* Hero Fixes */
+    /* Fixed Hero Stacking (No Overlap) */
     .hero {
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         text-align: center;
-        padding-top: 140px; /* Pushes content below the fixed navbar */
+        padding-top: 180px; /* Pushes content safely below the nav */
+        gap: 40px; /* Forces distance between logo and text */
     }
 
     .hero-left, .hero-right {
         width: 100%;
+        display: flex;
         justify-content: center;
     }
 
@@ -1065,55 +626,40 @@ footer p {
         position: relative;
         transform: none;
         top: 0;
-        margin-bottom: 30px;
+        margin: 0 auto;
         justify-content: center;
     }
 
     .main-logo {
-        width: 180px;
-        height: 180px;
+        width: 160px;
+        height: 160px;
         margin-left: 0;
     }
 
     .cloud-blob {
         left: 50% !important;
+        top: 50% !important;
         transform: translate(-50%, -50%) !important;
-        width: 350px !important;
-        height: 350px !important;
+        width: 300px !important;
+        height: 300px !important;
     }
 
-    .hero-text-area h1 {
-        font-size: 2.5rem;
-    }
+    .hero-text-area h1 { font-size: 2.2rem; }
+    .typing-container { font-size: 1.2rem; min-height: 60px; }
 
-    .typing-container {
-        font-size: 1.3rem;
-    }
-
-    /* Wedding Banner Fixes */
+    /* Wedding Banner Mobile */
     .wedding-section {
         flex-direction: column;
         padding: 80px 20px;
         height: auto;
     }
 
-    .wedding-wave-bg {
-        height: 100%;
-    }
-
     .wedding-upper-left, .wedding-center-quote, .wedding-bottom-right {
         width: 100%;
         position: relative;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
+        left: 0; right: 0; top: 0; bottom: 0;
         margin: 20px 0;
         align-items: center;
-    }
-
-    .wedding-upper-left {
-        transform: none !important;
     }
 
     .arch-photo-mask {
@@ -1124,7 +670,6 @@ footer p {
     }
 
     .wedding-center-quote {
-        transform: none;
         padding: 20px 10px;
     }
 
@@ -1133,7 +678,7 @@ footer p {
         min-height: auto;
     }
 
-    /* Footer Fixes */
+    /* Footer Mobile */
     .footer-brand {
         width: 100%;
         text-align: center;
