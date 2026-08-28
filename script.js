@@ -1,3 +1,6 @@
+// ==========================================
+// 1. HERO SECTION TYPING ANIMATION
+// ==========================================
 const textElement = document.getElementById("typing-text");
 const services = ["Weddings", "Pre-Weddings", "Baby Photo Shoots", "Birthdays", "Anniversaries"];
 let serviceIndex = 0;
@@ -5,6 +8,7 @@ let charIndex = 0;
 let isDeleting = false;
 
 function typeEffect() {
+    if (!textElement) return; // Safety check
     const currentService = services[serviceIndex];
     
     if (isDeleting) {
@@ -35,16 +39,11 @@ function typeEffect() {
     setTimeout(typeEffect, typeSpeed);
 }
 
-// Start the animation when page loads
-document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(typeEffect, 1000);
-});
-
 // ==========================================
-// 1. SILK FADE IMAGE SLIDER (Left Side)
+// 2. WEDDING SECTION - SILK FADE SLIDER
 // ==========================================
 function startSilkSlider() {
-    const images = document.querySelectorAll('.image-slider-mask .slider-img');
+    const images = document.querySelectorAll('.arch-photo-mask .banner-img');
     if(images.length === 0) return;
     
     let currentIndex = 0;
@@ -62,7 +61,7 @@ function startSilkSlider() {
 }
 
 // ==========================================
-// 2. 3D CARD FLIPPER (Right Side Stack)
+// 3. 3D CARD FLIPPER (Right Side Stack)
 // ==========================================
 function startCardStackFlipper() {
     const stack = document.getElementById('wedding-stack');
@@ -94,19 +93,25 @@ function startCardStackFlipper() {
 }
 
 // ==========================================
-// 3. MODAL POPUP LOGIC
+// 4. MODAL POPUP LOGIC
 // ==========================================
 function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevents background scrolling
+    const modal = document.getElementById(modalId);
+    if(modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevents background scrolling
+    }
 }
 
 function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restores scrolling
+    const modal = document.getElementById(modalId);
+    if(modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restores scrolling
+    }
 }
 
-// Close modal if user clicks anywhere outside the white box
+// Close modal if user clicks anywhere outside the dark box
 window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
         event.target.style.display = "none";
@@ -114,21 +119,16 @@ window.onclick = function(event) {
     }
 }
 
-// Initialize everything on load
-document.addEventListener("DOMContentLoaded", () => {
-    // Keep your typing animation call here if it's already there
-    startSilkSlider();
-    startCardStackFlipper();
-});
-
 // ==========================================
-// 4. SCROLL ANIMATIONS & TYPING EFFECT
+// 5. SCROLL OBSERVER FOR TYPING TEXT (WEDDING SECTION)
 // ==========================================
-document.addEventListener("DOMContentLoaded", () => {
-    
+function initScrollTyping() {
     const weddingSection = document.getElementById("category-wedding");
     const titleElement = document.getElementById("wedding-title-type");
     const quoteElement = document.getElementById("wedding-quote-type");
+
+    // Prevent errors if elements aren't found
+    if (!weddingSection || !titleElement || !quoteElement) return;
 
     const titleText = "Weading";
     const quoteText = '"Because every love story is beautiful, but yours should be a masterpiece. Let us freeze your fleeting moments into eternal memories."';
@@ -151,25 +151,29 @@ document.addEventListener("DOMContentLoaded", () => {
         typeWriter();
     }
 
-    // Scroll Observer to trigger the Wave and Typing
+    // Scroll Observer to trigger the Typing
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && !typingStarted) {
                 typingStarted = true;
                 
-                // 1. Add class to draw the wave
-                weddingSection.classList.add("is-visible");
-
-                // 2. Wait for wave to draw, then type title
-                setTimeout(() => {
-                    typeText(titleElement, titleText, 100, () => {
-                        // 3. After title finishes, type the quote
-                        typeText(quoteElement, quoteText, 40);
-                    });
-                }, 1000); // 1 second delay matches the wave drawing
+                // Type title, then quote
+                typeText(titleElement, titleText, 100, () => {
+                    typeText(quoteElement, quoteText, 40);
+                });
             }
         });
     }, { threshold: 0.4 }); // Triggers when 40% of the section is visible
 
     observer.observe(weddingSection);
+}
+
+// ==========================================
+// 6. INITIALIZE EVERYTHING ON PAGE LOAD
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(typeEffect, 1000); // Hero section typing
+    startSilkSlider();            // Wedding arch photo fade
+    startCardStackFlipper();      // Wedding 3D cards
+    initScrollTyping();           // Wedding scroll animation
 });
