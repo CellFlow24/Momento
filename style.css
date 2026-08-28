@@ -650,65 +650,77 @@ footer p {
 }
 
 /* =========================================================
-   EXACT SKETCH LAYOUT: WEDDING SECTION (WITH NEW WAVE)
+   EXACT SKETCH LAYOUT: WEDDING SECTION (FLEXBOX FIX)
 ========================================================= */
 .wedding-section {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    padding: 60px 80px;
-    background-color: var(--bg-color); /* Faded cream background */
+    padding: 80px 5vw;
+    background-color: var(--bg-color); 
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Evenly spaces the 3 blocks */
 }
 
-/* THE EXACT RIBBON WAVE SHAPE FROM YOUR IMAGE */
+/* THE RIBBON WAVE (Taller to match red line, hidden by default) */
 .wedding-wave-bg {
     position: absolute;
     top: 50%;
     left: 0;
     width: 100%;
-    height: 70vh; /* This controls how thick the ribbon is */
+    height: 95vh; /* Increased height to reach higher behind the photo */
     transform: translateY(-50%);
-    /* This draws the exact shape from your image without needing a file */
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 400" preserveAspectRatio="none"><path fill="%23ecd5c9" d="M 0 100 C 400 320, 700 -120, 1440 100 L 1440 350 C 700 130, 400 570, 0 350 Z"></path></svg>');
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 1; /* Keeps it safely behind the photos and text */
+    z-index: 1; 
+    
+    /* Left-to-Right Draw Animation Setup */
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    transition: clip-path 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Triggers when scrolled into view */
+.wedding-section.is-visible .wedding-wave-bg {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* SLOW BREATHING ANIMATION for Photos and Cards */
+.breathing-anim {
+    animation: slowBreathe 6s ease-in-out infinite;
+}
+
+@keyframes slowBreathe {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }
 
 /* Ensure all content floats above the wave */
 .wedding-upper-left,
 .wedding-center-quote,
 .wedding-bottom-right {
+    position: relative; /* Changed from absolute to fix yellow circle overlap */
     z-index: 5;
 }
 
-/* UPPER LEFT: Arched Photo Mask and Title */
+/* UPPER LEFT */
 .wedding-upper-left {
-    position: absolute;
-    top: 60px;
-    left: 80px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-/* The D-shaped / Arched crop exactly from your image */
 .arch-photo-mask {
     width: 320px;
     height: 420px;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    border-bottom-right-radius: 200px;
-    border-bottom-left-radius: 0px;
+    border-radius: 200px 200px 200px 0px; /* D-Shape */
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(90, 64, 73, 0.12);
     position: relative;
-    background: white; /* Fallback if image fails */
+    background: white; 
 }
 
 .banner-img {
@@ -720,26 +732,22 @@ footer p {
     transition: opacity 1.5s ease-in-out;
 }
 
-.banner-img.active {
-    opacity: 1;
-}
+.banner-img.active { opacity: 1; }
 
 .section-tag-title {
     margin-top: 15px;
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-style: italic;
     color: var(--primary-color);
     letter-spacing: 1px;
+    min-height: 40px; /* Keeps space while typing */
 }
 
-/* CENTER: Romantic Attraction Quote */
+/* CENTER: Quote */
 .wedding-center-quote {
-    position: absolute;
-    left: 42%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 26%;
+    flex: 1; /* Allows it to dynamically take up middle space */
+    padding: 0 50px;
     text-align: center;
 }
 
@@ -749,16 +757,15 @@ footer p {
     font-style: italic;
     color: var(--primary-color);
     line-height: 1.6;
+    min-height: 120px; /* Keeps space while typing */
 }
 
-/* BOTTOM RIGHT: Professionals Title & Stack */
+/* BOTTOM RIGHT */
 .wedding-bottom-right {
-    position: absolute;
-    bottom: 60px;
-    right: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px; /* Drops it lower to match the diagonal layout */
 }
 
 .professionals-label {
@@ -769,7 +776,6 @@ footer p {
     margin-bottom: 15px;
 }
 
-/* 3D Flipping Card Stack Container */
 .card-stack {
     position: relative;
     width: 260px;
@@ -788,7 +794,6 @@ footer p {
     transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Stack Positions */
 .stack-card[data-pos="0"] { z-index: 3; transform: translateX(0) scale(1); opacity: 1; }
 .stack-card[data-pos="1"] { z-index: 2; transform: translateX(25px) translateY(-15px) scale(0.92); opacity: 0.85; }
 .stack-card[data-pos="2"] { z-index: 1; transform: translateX(50px) translateY(-30px) scale(0.84); opacity: 0.7; }
