@@ -32,6 +32,7 @@
         <div class="hero-left">
             <div class="logo-wrapper">
                 <div class="cloud-blob"></div>
+                <!-- Smooth Transparent Logo -->
                 <img src="Stock/1000272025.png" alt="Momento Photography Logo" class="main-logo">
             </div>
         </div>
@@ -44,7 +45,7 @@
         </div>
     </header>
     
-    <!-- WEDDING CATEGORY BANNER -->
+    <!-- WEDDING SECTION -->
     <section id="category-wedding" class="wedding-section hidden-section">
         <div class="ambient-background">
             <div class="glow-orb orb-1"></div>
@@ -66,82 +67,97 @@
 
         <div class="wedding-bottom-right breathing-anim">
             <h3 class="professionals-label">Professionals</h3>
-            
             <div class="card-stack" id="wedding-stack">
                 <div class="pro-card stack-card" data-pos="0">
                     <img src="Stock/pro-shot-1.jpeg" class="best-shot" alt="Best Shot">
-                    <div class="dp-wrapper">
-                        <img src="Stock/pro-dp-1.jpeg" class="pro-dp" alt="DP">
-                        <div class="dp-overlay-text">
-                            <h3>Aarav Mehta</h3>
-                            <p>🏆 50+ Weddings | Candid Expert</p>
-                        </div>
-                    </div>
+                    <div class="dp-wrapper"><img src="Stock/pro-dp-1.jpeg" class="pro-dp" alt="DP"></div>
                 </div>
                 <div class="pro-card stack-card" data-pos="1">
                     <img src="Stock/pro-shot-2.jpeg" class="best-shot" alt="Best Shot">
-                    <div class="dp-wrapper">
-                        <img src="Stock/pro-dp-2.jpeg" class="pro-dp" alt="DP">
-                        <div class="dp-overlay-text">
-                            <h3>Rohan Verma</h3>
-                            <p>🏆 40+ Weddings | Cinematic Story</p>
-                        </div>
-                    </div>
+                    <div class="dp-wrapper"><img src="Stock/pro-dp-2.jpeg" class="pro-dp" alt="DP"></div>
                 </div>
                 <div class="pro-card stack-card" data-pos="2">
                     <img src="Stock/pro-shot-3.jpeg" class="best-shot" alt="Best Shot">
-                    <div class="dp-wrapper">
-                        <img src="Stock/pro-dp-3.jpeg" class="pro-dp" alt="DP">
-                        <div class="dp-overlay-text">
-                            <h3>Kabir Das</h3>
-                            <p>🏆 70+ Weddings | Traditional Royal</p>
-                        </div>
-                    </div>
+                    <div class="dp-wrapper"><img src="Stock/pro-dp-3.jpeg" class="pro-dp" alt="DP"></div>
                 </div>
             </div>
-
             <button class="btn-view-all" onclick="openModal('modal-wedding')">View All Professionals</button>
         </div>
     </section>
+
+    <!-- BIRTHDAY SECTION -->
+    <section id="category-birthday" class="wedding-section hidden-section">
+        <!-- Reusing the ambient background classes for consistency -->
+        <div class="ambient-background">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+            <div class="glow-orb orb-3"></div>
+        </div>
+
+        <div class="wedding-upper-left breathing-anim">
+            <div class="arch-photo-mask" id="birthday-slideshow">
+                <img src="Stock/bday-banner-1.jpeg" class="banner-img active" alt="Birthday Banner 1">
+                <img src="Stock/bday-banner-2.jpeg" class="banner-img" alt="Birthday Banner 2">
+            </div>
+            <h2 class="section-tag-title" id="birthday-title-type"></h2>
+        </div>
+
+        <div class="wedding-center-quote">
+            <p id="birthday-quote-type"></p>
+        </div>
+
+        <div class="wedding-bottom-right breathing-anim">
+            <h3 class="professionals-label">Professionals</h3>
+            <div class="card-stack" id="birthday-stack">
+                <div class="pro-card stack-card" data-pos="0">
+                    <img src="Stock/bday-shot-1.jpeg" class="best-shot" alt="Best Shot">
+                    <div class="dp-wrapper"><img src="Stock/pro-dp-1.jpeg" class="pro-dp" alt="DP"></div>
+                </div>
+                <div class="pro-card stack-card" data-pos="1">
+                    <img src="Stock/bday-shot-2.jpeg" class="best-shot" alt="Best Shot">
+                    <div class="dp-wrapper"><img src="Stock/pro-dp-2.jpeg" class="pro-dp" alt="DP"></div>
+                </div>
+                <div class="pro-card stack-card" data-pos="2">
+                    <img src="Stock/bday-shot-3.jpeg" class="best-shot" alt="Best Shot">
+                    <div class="dp-wrapper"><img src="Stock/pro-dp-3.jpeg" class="pro-dp" alt="DP"></div>
+                </div>
+            </div>
+            <button class="btn-view-all" onclick="openModal('modal-birthday')">View All Professionals</button>
+        </div>
+    </section>
     
-    <!-- VIEW ALL MODAL -->
+    <!-- WEDDING MODAL -->
     <div id="modal-wedding" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-wedding')">&times; Close</span>
-            <h2>All Wedding Professionals</h2>
+            <h2>Wedding Professionals</h2>
             <div class="modal-card-grid">
+                <!-- Grid Cards logic remains exactly the same -->
                 <div class="pro-card">
                     <img src="Stock/pro-shot-1.jpeg" class="best-shot" alt="Shot">
-                    <div class="dp-wrapper">
-                        <img src="Stock/pro-dp-1.jpeg" class="pro-dp" alt="DP">
-                        <div class="dp-overlay-text">
-                            <h3>Aarav Mehta</h3>
-                            <p>🏆 Candid Expert</p>
-                            <button class="btn-view-profile">View Profile</button>
-                        </div>
-                    </div>
+                    <div class="dp-wrapper"><img src="Stock/pro-dp-1.jpeg" class="pro-dp" alt="DP"></div>
                 </div>
                 <div class="pro-card">
                     <img src="Stock/pro-shot-2.jpeg" class="best-shot" alt="Shot">
-                    <div class="dp-wrapper">
-                        <img src="Stock/pro-dp-2.jpeg" class="pro-dp" alt="DP">
-                        <div class="dp-overlay-text">
-                            <h3>Rohan Verma</h3>
-                            <p>🏆 Cinematic Story</p>
-                            <button class="btn-view-profile">View Profile</button>
-                        </div>
-                    </div>
+                    <div class="dp-wrapper"><img src="Stock/pro-dp-2.jpeg" class="pro-dp" alt="DP"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BIRTHDAY MODAL -->
+    <div id="modal-birthday" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-birthday')">&times; Close</span>
+            <h2>Birthday Professionals</h2>
+            <div class="modal-card-grid">
+                <div class="pro-card">
+                    <img src="Stock/bday-shot-1.jpeg" class="best-shot" alt="Shot">
+                    <div class="dp-wrapper"><img src="Stock/pro-dp-1.jpeg" class="pro-dp" alt="DP"></div>
                 </div>
                 <div class="pro-card">
-                    <img src="Stock/pro-shot-3.jpeg" class="best-shot" alt="Shot">
-                    <div class="dp-wrapper">
-                        <img src="Stock/pro-dp-3.jpeg" class="pro-dp" alt="DP">
-                        <div class="dp-overlay-text">
-                            <h3>Kabir Das</h3>
-                            <p>🏆 Traditional Royal</p>
-                            <button class="btn-view-profile">View Profile</button>
-                        </div>
-                    </div>
+                    <img src="Stock/bday-shot-2.jpeg" class="best-shot" alt="Shot">
+                    <div class="dp-wrapper"><img src="Stock/pro-dp-2.jpeg" class="pro-dp" alt="DP"></div>
                 </div>
             </div>
         </div>
@@ -149,7 +165,7 @@
 
     <script src="script.js"></script>
 
-    <!-- PROPER FOOTER -->
+    <!-- FOOTER WITH SMOOTH LOGO -->
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-brand">
@@ -161,7 +177,7 @@
                 <h4>Explore</h4>
                 <a href="#">Home</a>
                 <a href="#category-wedding">Weddings</a>
-                <a href="#">Baby Shoots</a>
+                <a href="#category-birthday">Birthdays</a>
                 <a href="#">Photographers</a>
             </div>
 
