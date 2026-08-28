@@ -120,3 +120,56 @@ document.addEventListener("DOMContentLoaded", () => {
     startSilkSlider();
     startCardStackFlipper();
 });
+
+// ==========================================
+// 4. SCROLL ANIMATIONS & TYPING EFFECT
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+    
+    const weddingSection = document.getElementById("category-wedding");
+    const titleElement = document.getElementById("wedding-title-type");
+    const quoteElement = document.getElementById("wedding-quote-type");
+
+    const titleText = "Weading";
+    const quoteText = '"Because every love story is beautiful, but yours should be a masterpiece. Let us freeze your fleeting moments into eternal memories."';
+
+    let typingStarted = false;
+
+    // Function to type out text character by character
+    function typeText(element, text, speed, callback) {
+        let i = 0;
+        element.innerHTML = "";
+        function typeWriter() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            } else if (callback) {
+                callback();
+            }
+        }
+        typeWriter();
+    }
+
+    // Scroll Observer to trigger the Wave and Typing
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !typingStarted) {
+                typingStarted = true;
+                
+                // 1. Add class to draw the wave
+                weddingSection.classList.add("is-visible");
+
+                // 2. Wait for wave to draw, then type title
+                setTimeout(() => {
+                    typeText(titleElement, titleText, 100, () => {
+                        // 3. After title finishes, type the quote
+                        typeText(quoteElement, quoteText, 40);
+                    });
+                }, 1000); // 1 second delay matches the wave drawing
+            }
+        });
+    }, { threshold: 0.4 }); // Triggers when 40% of the section is visible
+
+    observer.observe(weddingSection);
+});
