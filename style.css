@@ -650,19 +650,41 @@ footer p {
 }
 
 /* =========================================================
-   EXACT SKETCH LAYOUT: WEDDING SECTION
+   EXACT SKETCH LAYOUT: WEDDING SECTION (WITH NEW WAVE)
 ========================================================= */
 .wedding-section {
     position: relative;
     width: 100%;
     min-height: 100vh;
     padding: 60px 80px;
-    /* Soft faded peach background matching your brand color style */
-    background: radial-gradient(circle at 70% 50%, rgba(244, 213, 194, 0.45) 0%, rgba(252, 249, 246, 1) 70%);
+    background-color: var(--bg-color); /* Faded cream background */
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+/* THE EXACT RIBBON WAVE SHAPE FROM YOUR IMAGE */
+.wedding-wave-bg {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 70vh; /* This controls how thick the ribbon is */
+    transform: translateY(-50%);
+    /* This draws the exact shape from your image without needing a file */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 400" preserveAspectRatio="none"><path fill="%23ecd5c9" d="M 0 100 C 400 320, 700 -120, 1440 100 L 1440 350 C 700 130, 400 570, 0 350 Z"></path></svg>');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1; /* Keeps it safely behind the photos and text */
+}
+
+/* Ensure all content floats above the wave */
+.wedding-upper-left,
+.wedding-center-quote,
+.wedding-bottom-right {
+    z-index: 5;
 }
 
 /* UPPER LEFT: Arched Photo Mask and Title */
@@ -673,7 +695,6 @@ footer p {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    z-index: 5;
 }
 
 /* The D-shaped / Arched crop exactly from your image */
@@ -687,7 +708,7 @@ footer p {
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(90, 64, 73, 0.12);
     position: relative;
-    animation: floatOnly 5s ease-in-out infinite;
+    background: white; /* Fallback if image fails */
 }
 
 .banner-img {
@@ -720,7 +741,6 @@ footer p {
     transform: translateY(-50%);
     width: 26%;
     text-align: center;
-    z-index: 5;
 }
 
 .wedding-center-quote p {
@@ -739,7 +759,6 @@ footer p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 5;
 }
 
 .professionals-label {
