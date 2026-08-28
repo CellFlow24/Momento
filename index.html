@@ -49,102 +49,104 @@
         </div>
     </header>
     
-    <!-- WEDDING CATEGORY BANNER -->
-    <section id="category-wedding" class="category-banner">
-        <!-- The soft peach wavy background -->
-        <div class="banner-wavy-bg"></div>
+    <!-- WEDDING CATEGORY BANNER (Exact layout from sketch) -->
+    <section id="category-wedding" class="wedding-section">
         
-        <div class="banner-container">
+        <!-- UPPER LEFT: Arched Photo Mask & "Weading" Title -->
+        <div class="wedding-upper-left">
+            <div class="arch-photo-mask">
+                <img src="Stock/wedding-banner-1.jpg" class="banner-img active" alt="Wedding Banner 1">
+                <img src="Stock/wedding-banner-2.jpg" class="banner-img" alt="Wedding Banner 2">
+            </div>
+            <h2 class="section-tag-title">Weading</h2>
+        </div>
+
+        <!-- CENTER: Romantic Quote / Attraction Text -->
+        <div class="wedding-center-quote">
+            <p>
+                "Because every love story is beautiful, but yours should be a masterpiece. Let us freeze your fleeting moments into eternal memories."
+            </p>
+        </div>
+
+        <!-- BOTTOM RIGHT: Professionals Title & Flipping 3D Stack -->
+        <div class="wedding-bottom-right">
+            <h3 class="professionals-label">Professionals</h3>
             
-            <!-- LEFT: Breathing Slider & Title -->
-            <div class="banner-left breathing-effect">
-                <div class="image-slider-mask">
-                    <img src="Stock/wedding1.jpg" class="slider-img active" alt="Wedding">
-                    <img src="Stock/wedding2.jpg" class="slider-img" alt="Wedding">
-                </div>
-                <h2 class="category-title">Weddings</h2>
-            </div>
-
-            <!-- CENTER: Pick-up Line / Quote -->
-            <div class="banner-center">
-                <p class="romantic-quote">
-                    "Because every love story is beautiful, but yours should be a masterpiece. <br><br>Let us freeze your fleeting moments into eternal memories."
-                </p>
-            </div>
-
-            <!-- RIGHT: 3D Flipping Card Stack -->
-            <div class="banner-right">
-                <h3 class="professionals-title">Professionals</h3>
-                
-                <div class="card-stack" id="wedding-stack">
-                    <!-- Card 1 -->
-                    <div class="pro-card stack-card" data-pos="0">
-                        <img src="Stock/photographer-best.jpg" class="best-shot" alt="Best Shot">
-                        <div class="dp-wrapper">
-                            <img src="Stock/photographer-dp.jpg" class="pro-dp" alt="DP">
-                            <div class="dp-overlay-text">
-                                <h3>John Doe</h3>
-                                <p>🏆 50+ Weddings | Candid Expert</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="pro-card stack-card" data-pos="1">
-                        <img src="Stock/baby1.jpg" class="best-shot" alt="Best Shot">
-                        <div class="dp-wrapper">
-                            <img src="Stock/photographer-dp.jpg" class="pro-dp" alt="DP">
-                            <div class="dp-overlay-text">
-                                <h3>Sarah Smith</h3>
-                                <p>🏆 30+ Weddings | Cinematic Video</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="pro-card stack-card" data-pos="2">
-                        <img src="Stock/wedding1.jpg" class="best-shot" alt="Best Shot">
-                        <div class="dp-wrapper">
-                            <img src="Stock/photographer-dp.jpg" class="pro-dp" alt="DP">
-                            <div class="dp-overlay-text">
-                                <h3>Mike Johnson</h3>
-                                <p>🏆 100+ Events | Traditional</p>
-                            </div>
+            <div class="card-stack" id="wedding-stack">
+                <!-- Card 1 -->
+                <div class="pro-card stack-card" data-pos="0">
+                    <img src="Stock/pro-shot-1.jpg" class="best-shot" alt="Best Shot">
+                    <div class="dp-wrapper">
+                        <img src="Stock/pro-dp-1.jpg" class="pro-dp" alt="DP">
+                        <div class="dp-overlay-text">
+                            <h3>Aarav Mehta</h3>
+                            <p>🏆 50+ Weddings | Candid Expert</p>
                         </div>
                     </div>
                 </div>
-                
-                <button class="btn-view-all" onclick="openModal('modal-wedding')">View All Professionals</button>
+                <!-- Card 2 -->
+                <div class="pro-card stack-card" data-pos="1">
+                    <img src="Stock/pro-shot-2.jpg" class="best-shot" alt="Best Shot">
+                    <div class="dp-wrapper">
+                        <img src="Stock/pro-dp-2.jpg" class="pro-dp" alt="DP">
+                        <div class="dp-overlay-text">
+                            <h3>Rohan Verma</h3>
+                            <p>🏆 40+ Weddings | Cinematic Story</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="pro-card stack-card" data-pos="2">
+                    <img src="Stock/pro-shot-3.jpg" class="best-shot" alt="Best Shot">
+                    <div class="dp-wrapper">
+                        <img src="Stock/pro-dp-3.jpg" class="pro-dp" alt="DP">
+                        <div class="dp-overlay-text">
+                            <h3>Kabir Das</h3>
+                            <p>🏆 70+ Weddings | Traditional Royal</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
+            <button class="btn-view-all" onclick="openModal('modal-wedding')">View All Professionals</button>
         </div>
     </section>
 
-    <!-- VIEW ALL MODAL (Popup Window) -->
+    <!-- VIEW ALL MODAL -->
     <div id="modal-wedding" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-wedding')">&times; Close</span>
-            <h2>Our Wedding Professionals</h2>
-            
+            <h2>All Wedding Professionals</h2>
             <div class="modal-card-grid">
-                <!-- Grid Card 1 -->
                 <div class="pro-card">
-                    <img src="Stock/photographer-best.jpg" class="best-shot" alt="Best Shot">
+                    <img src="Stock/pro-shot-1.jpg" class="best-shot" alt="Shot">
                     <div class="dp-wrapper">
-                        <img src="Stock/photographer-dp.jpg" class="pro-dp" alt="DP">
+                        <img src="Stock/pro-dp-1.jpg" class="pro-dp" alt="DP">
                         <div class="dp-overlay-text">
-                            <h3>John Doe</h3>
-                            <p>🏆 50+ Weddings | Candid Expert</p>
+                            <h3>Aarav Mehta</h3>
+                            <p>🏆 Candid Expert</p>
                             <button class="btn-view-profile">View Profile</button>
                         </div>
                     </div>
                 </div>
-                <!-- Grid Card 2 -->
                 <div class="pro-card">
-                    <img src="Stock/baby1.jpg" class="best-shot" alt="Best Shot">
+                    <img src="Stock/pro-shot-2.jpg" class="best-shot" alt="Shot">
                     <div class="dp-wrapper">
-                        <img src="Stock/photographer-dp.jpg" class="pro-dp" alt="DP">
+                        <img src="Stock/pro-dp-2.jpg" class="pro-dp" alt="DP">
                         <div class="dp-overlay-text">
-                            <h3>Sarah Smith</h3>
-                            <p>🏆 30+ Weddings | Cinematic Video</p>
+                            <h3>Rohan Verma</h3>
+                            <p>🏆 Cinematic Story</p>
+                            <button class="btn-view-profile">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pro-card">
+                    <img src="Stock/pro-shot-3.jpg" class="best-shot" alt="Shot">
+                    <div class="dp-wrapper">
+                        <img src="Stock/pro-dp-3.jpg" class="pro-dp" alt="DP">
+                        <div class="dp-overlay-text">
+                            <h3>Kabir Das</h3>
+                            <p>🏆 Traditional Royal</p>
                             <button class="btn-view-profile">View Profile</button>
                         </div>
                     </div>
