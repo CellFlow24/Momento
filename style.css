@@ -161,18 +161,57 @@ nav .nav-links { margin-right: auto; margin-left: 20px; }
    7. MODAL POPUP
 ========================================================= */
 .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(90, 64, 73, 0.8); backdrop-filter: blur(8px); z-index: 1000; overflow-y: auto; }
-.modal-content { background: var(--bg-color); margin: 5% auto; padding: 40px; width: 90%; max-width: 1100px; border-radius: 20px; position: relative; text-align: center; }
-.close-btn { position: absolute; top: 20px; right: 25px; font-size: 16px; font-weight: bold; cursor: pointer; color: var(--primary-color); background: white; padding: 8px 15px; border-radius: 20px; }
-.modal-content h2 { font-size: 2.5rem; margin-bottom: 40px; }
-.modal-card-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
+.modal-content { background: var(--bg-color); margin: 5% auto; padding: 40px; width: 90%; max-width: 1200px; border-radius: 20px; position: relative; text-align: center; }
+.close-btn { position: absolute; top: 20px; right: 25px; font-size: 16px; font-weight: bold; cursor: pointer; color: var(--primary-color); background: white; padding: 8px 15px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-.modal-card-grid .pro-card { width: 320px; height: 450px; position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.5s ease, box-shadow 0.5s ease; cursor: pointer; }
+.modal-content h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--primary-color); }
+
+.modal-card-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; }
+
+/* New Wrapper for Card + Text Below */
+.modal-card-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Modal Card Sizing and Hover */
+.modal-card-grid .pro-card { width: 300px; height: 420px; position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.5s ease, box-shadow 0.5s ease; cursor: pointer; }
 .modal-card-grid .pro-card:hover { transform: translateY(-15px); box-shadow: 0 25px 45px rgba(0,0,0,0.2); }
 .modal-card-grid .pro-card:hover .dp-wrapper { bottom: 0; right: 0; width: 100%; height: 100%; border-radius: 0; border: none; }
 .modal-card-grid .pro-card:hover .dp-overlay-text { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
 .modal-card-grid .pro-card:hover .best-shot { filter: brightness(0.6); }
-.btn-view-profile { margin-top: 15px; padding: 8px 15px; background: transparent; border: 1px solid white; color: white; border-radius: 20px; cursor: pointer; transition: 0.3s; }
-.btn-view-profile:hover { background: white; color: var(--primary-color); }
+
+/* Details & Profile Button Below Card */
+.modal-card-details {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.modal-card-details h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.btn-view-profile { 
+    padding: 10px 25px; 
+    background: transparent; 
+    border: 2px solid var(--primary-color); 
+    color: var(--primary-color); 
+    border-radius: 25px; 
+    cursor: pointer; 
+    font-weight: bold;
+    font-size: 1rem;
+    transition: 0.3s; 
+}
+
+.btn-view-profile:hover { 
+    background: var(--primary-color); 
+    color: white; 
+}
 
 /* =========================================================
    8. FOOTER STYLES
