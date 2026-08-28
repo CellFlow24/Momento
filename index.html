@@ -49,43 +49,110 @@
         </div>
     </header>
     
-    <!-- SERVICES SECTION (Inspired by 7ec2cf4f-8942-485e-af9d-e82435a41af8) -->
-    <section id="services" class="services-section">
-        <div class="service-grid">
-            <div class="arch-card top-left">
-                <img src="Stock/wedding1.jpg" alt="Wedding">
-                <p>Weddings</p>
+    <!-- WEDDING CATEGORY BANNER -->
+    <section id="category-wedding" class="category-banner">
+        <!-- The soft peach wavy background -->
+        <div class="banner-wavy-bg"></div>
+        
+        <div class="banner-container">
+            
+            <!-- LEFT: Breathing Slider & Title -->
+            <div class="banner-left breathing-effect">
+                <div class="image-slider-mask">
+                    <img src="Stock/wedding1.jpg" class="slider-img active" alt="Wedding">
+                    <img src="Stock/wedding2.jpg" class="slider-img" alt="Wedding">
+                </div>
+                <h2 class="category-title">Weddings</h2>
             </div>
-            <div class="center-text">
-                <h2>Our Specialties</h2>
-                <p>From the first breath to the golden years, we frame your legacy.</p>
+
+            <!-- CENTER: Pick-up Line / Quote -->
+            <div class="banner-center">
+                <p class="romantic-quote">
+                    "Because every love story is beautiful, but yours should be a masterpiece. <br><br>Let us freeze your fleeting moments into eternal memories."
+                </p>
             </div>
-            <div class="arch-card bottom-right">
-                <img src="Stock/baby1.jpg" alt="Baby Shoot">
-                <p>Baby Shoots</p>
+
+            <!-- RIGHT: 3D Flipping Card Stack -->
+            <div class="banner-right">
+                <h3 class="professionals-title">Professionals</h3>
+                
+                <div class="card-stack" id="wedding-stack">
+                    <!-- Card 1 -->
+                    <div class="pro-card stack-card" data-pos="0">
+                        <img src="Stock/photographer-best.jpg" class="best-shot" alt="Best Shot">
+                        <div class="dp-wrapper">
+                            <img src="Stock/photographer-dp.jpg" class="pro-dp" alt="DP">
+                            <div class="dp-overlay-text">
+                                <h3>John Doe</h3>
+                                <p>🏆 50+ Weddings | Candid Expert</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="pro-card stack-card" data-pos="1">
+                        <img src="Stock/baby1.jpg" class="best-shot" alt="Best Shot">
+                        <div class="dp-wrapper">
+                            <img src="Stock/photographer-dp.jpg" class="pro-dp" alt="DP">
+                            <div class="dp-overlay-text">
+                                <h3>Sarah Smith</h3>
+                                <p>🏆 30+ Weddings | Cinematic Video</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="pro-card stack-card" data-pos="2">
+                        <img src="Stock/wedding1.jpg" class="best-shot" alt="Best Shot">
+                        <div class="dp-wrapper">
+                            <img src="Stock/photographer-dp.jpg" class="pro-dp" alt="DP">
+                            <div class="dp-overlay-text">
+                                <h3>Mike Johnson</h3>
+                                <p>🏆 100+ Events | Traditional</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-view-all" onclick="openModal('modal-wedding')">View All Professionals</button>
             </div>
-            <!-- Add more arched cards for Birthdays, Pre-weddings, etc. -->
+
         </div>
     </section>
 
-    <!-- UPGRADED 3D PHOTOGRAPHER CARDS -->
-    <section id="photographers" class="photographer-section">
-        <h2>Featured Professionals</h2>
-        <div class="cards-container">
-            <!-- Card 1 -->
-            <div class="pro-card">
-                <img src="Stock/photographer-best.jpg" alt="Best Shot" class="best-shot">
-                <div class="dp-wrapper">
-                    <img src="Stock/photographer-dp.jpg" alt="Photographer DP" class="pro-dp">
-                    <div class="dp-overlay-text">
-                        <h3>John Doe</h3>
-                        <p>Speciality: Candid Wedding & Pre-Wedding</p>
+    <!-- VIEW ALL MODAL (Popup Window) -->
+    <div id="modal-wedding" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-wedding')">&times; Close</span>
+            <h2>Our Wedding Professionals</h2>
+            
+            <div class="modal-card-grid">
+                <!-- Grid Card 1 -->
+                <div class="pro-card">
+                    <img src="Stock/photographer-best.jpg" class="best-shot" alt="Best Shot">
+                    <div class="dp-wrapper">
+                        <img src="Stock/photographer-dp.jpg" class="pro-dp" alt="DP">
+                        <div class="dp-overlay-text">
+                            <h3>John Doe</h3>
+                            <p>🏆 50+ Weddings | Candid Expert</p>
+                            <button class="btn-view-profile">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Grid Card 2 -->
+                <div class="pro-card">
+                    <img src="Stock/baby1.jpg" class="best-shot" alt="Best Shot">
+                    <div class="dp-wrapper">
+                        <img src="Stock/photographer-dp.jpg" class="pro-dp" alt="DP">
+                        <div class="dp-overlay-text">
+                            <h3>Sarah Smith</h3>
+                            <p>🏆 30+ Weddings | Cinematic Video</p>
+                            <button class="btn-view-profile">View Profile</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+    
     <!-- FOOTER -->
     <footer>
         <img src="Stock/1000272025.png" alt="Logo" class="footer-logo">
